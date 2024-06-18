@@ -1,0 +1,68 @@
+/* Copyright 2024 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+button {
+  display: inline-grid;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--brand-border_radius);
+  background: var(--surface-document);
+  cursor: pointer;
+
+  &:focus:not(:focus-visible) { 
+    outline: none 
+  }
+
+  &[primary] {
+    background: var(--brand-primary);
+    color: black;
+  }
+
+  &[light] {
+    background: var(--surface-2);
+    color: var(--text-1);
+  }
+
+  & > svg {
+    inline-size: 100%;
+  }
+
+  &:is([small-icon], [large-icon]) {
+    padding: 0.25rem;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, outline-offset .2s ease;
+
+    &:hover {
+      border-color: var(--surface-2);
+    }
+
+    &:active {
+      border-color: var(--brand-primary);
+    }
+  }
+
+  &[small-icon] {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+  }
+
+  &[large-icon] {
+    inline-size: 3rem;
+    block-size: 3rem;
+  }
+}

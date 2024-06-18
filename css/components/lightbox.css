@@ -1,0 +1,64 @@
+/* Copyright 2024 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+:where(#lightbox) {
+  /* remove browser default styles */
+	border: none;
+	padding: 0;
+
+	/* popover transition in/out */
+	&, &::backdrop {
+    transition: 
+      display .5s allow-discrete, 
+      overlay .5s allow-discrete, 
+      transform .5s,
+      opacity .5s;
+    opacity: 0;
+  }
+  
+  /* open state */
+  &:popover-open {
+    opacity: 1;
+    transform: scale(1);
+    
+    &::backdrop {
+      opacity: 1;
+    }
+  }
+  
+  /* offstage styles */
+  @starting-style {
+    &:popover-open,
+    &:popover-open::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* only scale if it's ok with the user */
+  @media (prefers-reduced-motion: no-preference) {
+  	transform: scale(.95);
+  }
+
+  /* neat radial vignette backdrop style */
+	&::backdrop {
+		background-image: radial-gradient(#0003, 25%, #000e);
+	}
+
+  /* light-box image sizing */
+	> img {
+		display: flex;
+		max-inline-size: 100%;
+    block-size: auto;
+	}
+}

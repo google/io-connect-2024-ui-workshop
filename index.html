@@ -1,0 +1,679 @@
+<!-- Copyright 2024 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  
+    <title>IO Connect 2024</title>
+    <meta name="description" content="This guide teaches you how to layout a page using constraints, alignments, distributions, and intrinsic properties.">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/theme-toggle.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </head>
+  <body>
+    <nav>
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m20 4l-2 14.5l-6 2l-6-2L4 4z"/><path d="M8.5 8h7L11 12h4l-.5 3.5l-2.5.75l-2.5-.75l-.1-.5"/></g></svg>
+      <my-brand>IO Connect</my-brand>
+      <search role="search">
+        <input type="search" placeholder="Search" autofocus>
+        <svg aria-hidden="true" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <path class="primary" d="M15.5 14l4.99 5L19 20.49l-5-4.99v-.79l-.27-.28A6.471 6.471 0 0 1 9.5 16 6.5 6.5 0 1 1 16 9.5c0 1.61-.59 3.09-1.57 4.23l.28.27h.79zm-6 0c2.49 0 4.5-2.01 4.5-4.5S11.99 5 9.5 5 5 7.01 5 9.5 7.01 14 9.5 14z"></path>
+        </svg>
+      </search>
+      <icon-button-list>
+        <button small-icon class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+          <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <mask class="moon" id="moon-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+            <g class="sun-beams" stroke="currentColor">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+             </g>
+          </svg>
+        </button>
+        <button small-icon search title="Search">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path class="primary" d="M15.5 14l4.99 5L19 20.49l-5-4.99v-.79l-.27-.28A6.471 6.471 0 0 1 9.5 16 6.5 6.5 0 1 1 16 9.5c0 1.61-.59 3.09-1.57 4.23l.28.27h.79zm-6 0c2.49 0 4.5-2.01 4.5-4.5S11.99 5 9.5 5 5 7.01 5 9.5 7.01 14 9.5 14z"></path>
+          </svg>
+        </button>
+        <button small-icon cart title="Cart">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-shopping-cart">
+            <path class="secondary" d="M7 4h14a1 1 0 0 1 .9 1.45l-4 8a1 1 0 0 1-.9.55H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/>
+            <path class="primary" d="M17.73 19a2 2 0 1 1-3.46 0H8.73a2 2 0 1 1-3.42-.08A3 3 0 0 1 5 13.17V4H3a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1v10h11a1 1 0 0 1 0 2H6a1 1 0 0 0 0 2h12a1 1 0 0 1 0 2h-.27z"/>
+          </svg>
+        </button>
+      </icon-button-list>
+      <button large-icon title="Account">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-user-circle">
+          <circle cx="12" cy="12" r="10" class="secondary"/>
+          <path class="primary" d="M3.66 17.52A5 5 0 0 1 8 15h8a5 5 0 0 1 4.34 2.52 10 10 0 0 1-16.68 0zM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+        </svg>
+      </button>
+    </nav>
+
+    <h2 class="greeting">Limited Time - Free Shipping</h2>
+    
+    <main>
+      <aside>
+        <fieldset>
+          <legend>Filter items</legend>
+
+          <label><input checked type="radio" name="filter-group" value="everything">Everything</label>
+          <label><input type="radio" name="filter-group" value="hoodies">Hoodies</label>
+          <label><input type="radio" name="filter-group" value="jackets">Jackets</label>
+          <label><input type="radio" name="filter-group" value="sweaters">Sweaters</label>
+          <label><input type="radio" name="filter-group" value="rainwear">Rainwear</label>
+          <label><input type="radio" name="filter-group" value="puffer">Puffer</label>
+        </fieldset>
+      </aside>
+      <article>
+
+        <section class="most-popular" hide-horizontal-overflow>
+          <header>
+            <h3>
+              Most Popular
+              <a href="#">
+                See All
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-arrow-thick-right-circle">
+                  <circle cx="12" cy="12" r="10" class="secondary"/>
+                  <path class="primary" d="M12 14H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h5V8a1 1 0 0 1 1.7-.7l4 4a1 1 0 0 1 0 1.4l-4 4A1 1 0 0 1 12 16v-2z"/>
+                </svg>
+              </a>
+            </h3>
+            <scroll-progress></scroll-progress>
+          </header>
+          <div class="most-popular-scroller" horizontal-scroll horizontal-snapping>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/1.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Magic Kid</a>
+                    <small>Lime Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="hoodies jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/2.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Discovery Paradise</a>
+                    <small>Cotton Hoodie</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="hoodies jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/3.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">The Archer</a>
+                    <small>Cotton Hoodie</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/4.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Strange World</a>
+                    <small>Cotton Zip</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Special weave</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/5.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">The Alchemist Returns</a>
+                    <small>Leatherman Jacket</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/6.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Defenders of the Moon</a>
+                    <small>Long Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/7.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">No Mercy</a>
+                    <small>Ribbed Hoodie Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Women's only exclusive</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/8.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Shred Seattle</a>
+                    <small>Ribbed Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Available in Black</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="fresh-releases" hide-horizontal-overflow>
+          <header>
+            <h3>
+              Fresh Releases
+              <a href="#">
+                See All
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-arrow-thick-right-circle">
+                  <circle cx="12" cy="12" r="10" class="secondary"/>
+                  <path class="primary" d="M12 14H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h5V8a1 1 0 0 1 1.7-.7l4 4a1 1 0 0 1 0 1.4l-4 4A1 1 0 0 1 12 16v-2z"/>
+                </svg>
+              </a>
+            </h3>
+            <scroll-progress></scroll-progress>
+          </header>
+          <div class="fresh-releases-scroller" horizontal-scroll horizontal-snapping>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/9.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Duo Tone</a>
+                    <small>Ribbed Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Available in Black</p>
+                    <data money>$129<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/12.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Camel Ride</a>
+                    <small>Denim Buttonup</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Available in Navy</p>
+                    <data money>$39<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/13.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Cobra Kai</a>
+                    <small>Camel Parka</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Available in Navy</p>
+                    <data money>$39<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/10.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Blue Sky</a>
+                    <small>Cyan Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/11.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Cobra Kai</a>
+                    <small>Camel Parka</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$39<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/14.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Broken Pavement</a>
+                    <small>Denim Jacket</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="hoodies jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/2.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Discovery Paradise</a>
+                    <small>Cotton Hoodie</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/1.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Magic Kid</a>
+                    <small>Lime Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/15.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Vanilla Latte</a>
+                    <small>Racer Jacket</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/16.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">The 90s Called</a>
+                    <small>Wind Breaker</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/18.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Snow Day</a>
+                    <small>Rain Jacket</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/17.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Sunny Beach</a>
+                    <small>Yellow Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$99<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="super-hot" hide-horizontal-overflow>
+          <header>
+            <h3>
+              Super Hot
+              <a href="#">
+                See All
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-arrow-thick-right-circle">
+                  <circle cx="12" cy="12" r="10" class="secondary"/>
+                  <path class="primary" d="M12 14H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h5V8a1 1 0 0 1 1.7-.7l4 4a1 1 0 0 1 0 1.4l-4 4A1 1 0 0 1 12 16v-2z"/>
+                </svg>
+              </a>
+            </h3>
+            <scroll-progress></scroll-progress>
+          </header>
+          <div class="super-hot-scroller" horizontal-scroll horizontal-snapping>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/4.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Strange World</a>
+                    <small>Cotton Zip</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Special weave</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="jackets">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/5.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">The Alchemist Returns</a>
+                    <small>Leatherman Jacket</small>
+                  </div>
+                  <div class="product-cost">
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/6.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Defenders of the Moon</a>
+                    <small>Long Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/7.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">No Mercy</a>
+                    <small>Ribbed Hoodie Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Women's only exclusive</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/8.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Shred Seattle</a>
+                    <small>Ribbed Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <p>Available in Black</p>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="puffer jackets rainwear">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/1.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Magic Kid</a>
+                    <small>Lime Puffer</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="hoodies jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/2.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">Discovery Paradise</a>
+                    <small>Cotton Hoodie</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="product-card-container">
+              <figure class="product-card" data-categories="hoodies jackets sweaters">
+                <button light-box title="View larger">
+                  <picture>
+                    <img src="products/3.jpg" loading="lazy" height="512" width="512">
+                  </picture>
+                </button>
+                <figcaption>
+                  <div class="product-meta">
+                    <a href="#">The Archer</a>
+                    <small>Cotton Hoodie</small>
+                  </div>
+                  <div class="product-cost">
+                    <span>Limited Edition</span>
+                    <data money>$29<sup>99</sup></data>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+    <figure id="lightbox" popover></figure>
+  </body>
+</html>

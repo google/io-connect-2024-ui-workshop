@@ -1,0 +1,94 @@
+/* Copyright 2024 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+.sun-and-moon {
+  & > :is(.moon, .sun, .sun-beams) {
+    transform-origin: center center;
+  }
+
+  & > :is(.moon, .sun) {
+    fill: var(--icon-fill);
+
+    .theme-toggle:is(:hover, :focus-visible) > & {
+      fill: var(--icon-fill-hover);
+    }
+  }
+
+  & > .sun-beams {
+    stroke: var(--icon-fill);
+    stroke-width: 2px;
+
+    .theme-toggle:is(:hover, :focus-visible) & {
+      stroke: var(--icon-fill-hover);
+    }
+  }
+
+  [data-theme="dark"] & {
+    & > .sun {
+      transform: scale(1.75);
+    }
+
+    & > .sun-beams {
+      opacity: 0;
+    }
+
+    & > .moon > circle {
+      transform: translateX(-7px);
+
+      @supports (cx: 1) {
+        transform: translateX(0);
+        cx: 17;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    & > .sun {
+      transition: transform .5s ease-out;
+    }
+
+    & > .sun-beams {
+      transition: 
+        transform .5s ease,
+        opacity .5s ease
+      ;
+    }
+
+    & .moon > circle {
+      transition: transform .25s ease-in-out;
+
+      @supports (cx: 1) {
+        transition: cx .25s ease-in-out;
+      }
+    }
+
+    [data-theme="dark"] & {
+      & > .sun {
+        transform: scale(1.75);
+        transition-timing-function: ease;
+        transition-duration: .25s;
+      }
+
+      & > .sun-beams {
+        transform: rotateZ(-25deg);
+        transition-duration: .15s;
+      }
+
+      & > .moon > circle {
+        transition-delay: .25s;
+        transition-duration: .5s;
+      }
+    }
+  }
+}
