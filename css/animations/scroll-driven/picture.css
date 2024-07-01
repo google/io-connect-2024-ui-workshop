@@ -26,7 +26,7 @@ section picture {
   > img {
     /* If the user does not have a reduced motion preference and the browser supports scroll-driven animations, set the animation properties */
     @media (prefers-reduced-motion: no-preference) {
-      @supports (animation-timeline: scroll()) {
+      @supports (animation-timeline: view()) {
         /* scale up animation */
         animation: picture--inview linear both;
 
