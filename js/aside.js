@@ -24,11 +24,11 @@ const { matches:motionOK } = window.matchMedia('(prefers-reduced-motion: no-pref
 // this gives each product a unique view transition name
 // only if the user is ok with motion, because this will enable position morphing
 // by default they crossfade which is great for "no motion"
-// if (motionOK) {
-// 	filterTargets.forEach((item, i) => {
-// 		item.parentNode.style.viewTransitionName = '--product-'+i
-// 	})
-// }
+if (motionOK) {
+	filterTargets.forEach((item, i) => {
+		item.parentNode.style.viewTransitionName = '--product-'+i
+	})
+}
 
 // when the user changes the aside radio group selected value
 aside.addEventListener('input', event => {
@@ -44,10 +44,8 @@ aside.addEventListener('input', event => {
 		})
 	}
 
-	filter()
-
 	// conditional view transition
-	// document.startViewTransition
-  //   ? document.startViewTransition(() => filter())
-  //   : filter()
+	document.startViewTransition
+    ? document.startViewTransition(() => filter())
+    : filter()
 })

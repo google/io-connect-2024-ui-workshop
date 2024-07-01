@@ -43,5 +43,5 @@ limitations under the License. */
 @import './components/fresh-releases-scroller.css' layer(components);
 @import './components/super-hot-scroller.css' layer(components);
 @import './components/theme-toggle.css' layer(components);
-/* @import './components/scroll-progress.css' layer(components); */
-/* @import './components/lightbox.css' layer(components); */
+@import './components/scroll-progress.css' layer(components);
+@import './components/lightbox.css' layer(components);

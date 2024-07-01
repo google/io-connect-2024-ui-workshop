@@ -103,7 +103,7 @@ limitations under the License. */
   }
 
   /* square layout */
-  /* @container (25rem <= inline-size < 30rem) {
+  @container (25rem <= inline-size < 30rem) {
     aspect-ratio: 1;
     grid: 1fr / 1fr;
     block-size: 100%;
@@ -151,10 +151,10 @@ limitations under the License. */
     [money] > sup {
       color: var(--color-4);
     }
-  } */
+  }
 
   /* portrait layout */
-  /* @container (25rem < inline-size < 40rem) {
+  @container (25rem < inline-size < 40rem) {
     aspect-ratio: 3/4;
     grid: auto 1fr / 1fr;
     block-size: 100%;
@@ -184,5 +184,5 @@ limitations under the License. */
     a {
       font-size: 2rem;
     }
-  } */
+  }
 }
