@@ -27,7 +27,6 @@ scroll-progress {
   /* scroll-progress masks this fill pseudo element */
   &::after {
     content: '';
-    background: var(--brand-secondary);
     /* The Pile layout - https://www.youtube.com/watch?v=6qpEOBkDr88 */
     grid-area: 1 / 1;
     border-radius: inherit;

@@ -45,6 +45,9 @@ scroll-progress {
 
   @supports (animation-timeline: scroll()) {
   	&::after {
+      /* fill the progress bar with the brand color */
+      background: var(--brand-secondary);
+      
       /* use the animation keyframes from the top of this file */
       animation: scroll-progress linear both;
 
