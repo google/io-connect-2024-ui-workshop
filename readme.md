@@ -7,3 +7,7 @@
     width="170"
   />
 </a>
+
+## Follow along
+
+Video workshop available on [Youtube](https://www.youtube.com/watch?v=oXSFwix7eR8)
