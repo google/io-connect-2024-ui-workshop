@@ -16,5 +16,5 @@ limitations under the License. */
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
-  grid-auto-columns: 20rem;
+  grid-auto-columns: 25rem;
 }
